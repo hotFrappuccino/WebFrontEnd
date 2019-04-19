@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 작성 위치</title>
+<script>
+	window.onload = function(){ //이거 없이 쓰면 이걸 읽을 때 second가 없어서 작동 안됨.
+			//하지만 윈도우.로드는 body 태그의 내용을 전부 읽고 메모리에 적재한 후 호출되는 이벤트
+		document.getElementById("second").innerHTML = "스크립트를 body 위에 작성"
+		console.log("누가먼저 수행될까 얘는 세컨드")
+	}
+</script>
+</head>
+<body>
+	<div id="first"></div>
+	<div id="second"></div>
+</body>
+
+<script>
+	document.getElementById("first").innerHTML = "스크립트를 body 아래에 작성"
+	console.log("누가먼저 수행될까 얘는 퍼스트")
+</script>
+
+</html>

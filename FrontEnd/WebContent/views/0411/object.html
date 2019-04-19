@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체</title>
+</head>
+<body>
+
+</body>
+
+<script>
+	var obj = {"name":"배유나", "team":"도로공사"}
+	console.log(obj["name"])
+	console.log(obj.team)
+	
+	//모든 속성을 확인
+	for(var attr in obj){
+		console.log(attr)
+	}
+	obj.age=31		//속성 추가
+	delete obj.team //속성 제거
+	
+	obj.display = function(){	//메소드도 추
+		console.log(this.name)
+	}
+	//모든 속성을 확인
+	for(var attr in obj){
+		console.log(obj[attr])
+	}
+	
+	console.log(obj.display)//함수의 내용을 확인
+		
+</script>
+</html>

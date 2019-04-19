@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스-타이포그래피</title>
+</head>
+<body>
+	<!-- 그래픽을 출력할 canvas 영역을 설정 -->
+	<canvas id="canvas" width="500" height="500"></canvas>
+	
+</body>
+<script>
+	//캔버스 찾아오기
+	var canvas = document.getElementById("canvas")
+	//캔버스에 그림을 그릴 객체를 가져오기
+	var context = canvas.getContext("2d")
+	//그림자 설정
+	context.shadowColor = "rgba(225,111,97, .8)"
+	context.shadowOffsetX = 2
+	context.shadowOffsetY = 5
+	context.shadowBlur = 10
+	
+	context.font="bold 50px verdana, sans-serif" //폰트설정 _ 브라우저에 따라 안될 수도 있으니 대체텍스트까지.
+	context.fillText("텍스트 출력", 50,50)
+	
+</script>
+</html>

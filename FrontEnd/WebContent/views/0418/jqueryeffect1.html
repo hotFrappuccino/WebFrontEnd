@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery 화면 전환 효과</title>
+<script src="../../js/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#btn').on('click',function(){
+			//3초동안 페이드 효과를 지정
+			$('#img').fadeToggle(3000, function(){
+				console.log("콜백으로 지정된 함수") //콜백으로 지정해야 종료된 후 수행
+			})
+			//하나의 함수 안에서 화면을 변경하는 코드와 다른 코드가 같이 있으면 비동기적으로 수행
+			console.log("애니메이션 후에 수행될까?")
+		})
+	})
+</script>
+</head>
+<body>
+	<input type="button" id="btn" /><br/>
+	<img id="img" src="../../resource/image1.png"/>
+
+</body>
+</html>

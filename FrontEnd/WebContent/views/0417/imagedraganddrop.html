@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 드래그 앤 드랍</title>
+<style>
+	.dropbox{
+		float:left;
+		width:300px;
+		height:300px;
+		margin:10px;
+		border:1px solid #999999;
+	}
+	#picturebox{
+		width:200px;
+		height:100px;
+		margin:10px;
+		border:1px solid #999999
+	}
+	#image{
+		float:left;
+		width:50px;
+		height:50px;
+	}
+</style>
+</head>
+<body>
+	<div id="picturebox">
+		<img id="image" src="../../resource/삐까.jpg"/>
+	</div>
+	<div class="dropbox" id="dropbox1">
+		여기에 이미지를 드랍합니다.
+	</div>
+	<div class="dropbox" id="dropbox2">
+		여기에 이미지를 드랍합니다.
+	</div>
+	<div class="dropbox" id="dropbox3">
+		여기에 이미지를 드랍합니다.
+	</div>
+	<div class="dropbox" id="dropbox4">
+		여기에 이미지를 드랍합니다.
+	</div>
+
+	
+	<!-- 스크립트를 아래에 작성하는 이유 - 가독성/로딩속도 때문 -->
+	<script>
+		//스크립트를 위로 옮겨도 동작하도록 하기 위해서
+		function initiate(e){
+			//이미지 객체를 찾아오기
+			source1 = document.getElementById('image')
+			
+			//드랍영역 객체를 찾아오기
+			drop1 = document.getElementById("dropbox1")
+			drop2 = document.getElementById("dropbox2")
+			drop3 = document.getElementById("dropbox3")
+			drop4 = document.getElementById("dropbox4")
+			
+			//source1에 dragstart 이벤트가 발생했을 때 처리
+			source1.addEventListener('dragstart',function(e){
+//				console.log('드래그스타트 이벤트 발생')
+				//전송할 데이터 만들기
+				var code = "<img src='"+source1.getAttribute('src')+"' />"
+//				console.log('전송할 데이터:'+code)
+				//데이터 전송
+				e.dataTransfer.setData('Text',code)
+
+			})
+			//drop1에 drop 이벤트가 발생했을 때 처리
+			drop1.addEventListener('drop',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+				console.log('드롭1 이벤트도 발생')
+				//전송된 데이터를 출력 - 이미지가 왔을 때 처리
+				drop1.innerHTML = e.dataTransfer.getData('Text')
+				drop1.setAttribute('width',300)
+				drop1.setAttribute('height',300)
+			})
+
+			drop2.addEventListener('drop',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+				console.log('드롭2 이벤트도 발생')
+				drop2.innerHTML = e.dataTransfer.getData('Text')
+			})
+
+			drop3.addEventListener('drop',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+				console.log('드롭3 이벤트도 발생')
+				drop3.innerHTML = e.dataTransfer.getData('Text')
+			})
+
+			drop4.addEventListener('drop',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+				console.log('드롭4 이벤트도 발생')
+				drop4.innerHTML = e.dataTransfer.getData('Text')
+			})
+			
+			
+			drop1.addEventListener('dragenter',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+			drop1.addEventListener('dragover',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})			
+			//drop1의 dragenter와 dragover 이벤트에서도 기본 이벤트 제거
+			drop2.addEventListener('dragenter',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+			drop2.addEventListener('dragover',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})			
+			//drop1의 dragenter와 dragover 이벤트에서도 기본 이벤트 제거
+			drop3.addEventListener('dragenter',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+			drop3.addEventListener('dragover',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+
+			drop4.addEventListener('dragenter',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+			drop4.addEventListener('dragover',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+		}
+		
+		window.addEventListener('load',initiate, false)
+	</script>
+</body>
+</html>

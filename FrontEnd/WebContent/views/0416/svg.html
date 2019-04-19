@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SVG를 이용한 그래픽</title>
+</head>
+<body>
+	<section>
+	<!--  경고가 생기는 이유는 보통 이 내용을 svg 파일에 저장하고 img 태그로 불러오는 것을 권장하기 때문 -->
+		<svg width="600" height="600">
+			<rect width="300" height="100"
+			style="fill:rgb(255,111,97);stroke-width:1px;stroke:rgb(0,0,0)">
+				<animate attributeName="stroke-width" values="1px;30px;1px" dur="2s" repeatCount="indefinite"/>
+				<animate attributeName="stroke-width" values="1px;30px;1px" dur="2s" repeatCount="indefinite"/>
+			</rect>	
+		</svg>	
+	</section>
+</body>
+</html>

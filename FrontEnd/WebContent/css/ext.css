@@ -1,0 +1,34 @@
+/*주석은 이렇게 달면 됩니다.*/
+@charset "UTF-8";
+
+/*태그 선택자*/
+div{
+	color:blue;
+}
+
+/*클래스 선택자*/
+.red{
+	color:red;
+}
+
+/* id 선택자 */
+#paragraph{
+	color:silver;
+}
+
+#pseudo{
+	background-color:black;
+	color:white;
+}
+
+#pseudo:hover{
+	color:gray;
+}
+
+#pseudo:active{
+	color:yellow;
+}
+
+#text:focus{
+	background-color:yellow;
+}

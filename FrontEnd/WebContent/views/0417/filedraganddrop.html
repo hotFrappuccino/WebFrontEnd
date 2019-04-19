@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 드래그 앤 드랍</title>
+<style>
+	#dropbox{
+		float:left;
+		width:300px;
+		height:500px;
+		margin:10px;
+		border:1px solid #999999;
+	}
+	#picturebox{
+		width:200px;
+		height:100px;
+		margin:10px;
+		border:1px solid #999999
+	}
+	#image{
+		float:left;
+		width:50px;
+		height:50px;
+	}
+</style>
+</head>
+<body>
+	<div id="picturebox">
+		<img id="image" src="../../resource/삐까.jpg"/>
+	</div>
+	<div id="dropbox">
+		여기에 이미지를 드랍합니다.
+	</div>
+
+	
+	<!-- 스크립트를 아래에 작성하는 이유 - 가독성/로딩속도 때문 -->
+	<script>
+		//스크립트를 위로 옮겨도 동작하도록 하기 위해서
+		function initiate(e){
+			//이미지 객체를 찾아오기
+			source1 = document.getElementById('image')
+			
+			//드랍영역 객체를 찾아오기
+			drop1 = document.getElementById("dropbox")
+
+			
+			//source1에 dragstart 이벤트가 발생했을 때 처리
+			source1.addEventListener('dragstart',function(e){
+//				console.log('드래그스타트 이벤트 발생')
+				//전송할 데이터 만들기
+				var code = "<img src='"+source1.getAttribute('src')+"' />"
+//				console.log('전송할 데이터:'+code)
+				//데이터 전송
+				e.dataTransfer.setData('Text',code)
+
+			})
+			//drop1에 drop 이벤트가 발생했을 때 처리
+			drop1.addEventListener('drop',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+//				console.log('드롭1 이벤트도 발생')
+				
+				//파일이 전송된 경우 파일 전체를 배열로 가져오기
+				var files = e.dataTransfer.files
+				var list=""
+				//배열을 순회
+				for(var i=0; i<files.length; i=i+1){
+					list += 'Files:' + files[i].name + ' ' + files[i].size + 'Byte' + '<br/>'
+					
+				}
+				drop1.innerHTML = list
+			})
+
+			
+			drop1.addEventListener('dragenter',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+			drop1.addEventListener('dragover',function(e){
+				e.preventDefault() //기본 이벤트를 제거
+			})
+		}
+		
+		window.addEventListener('load',initiate, false)
+	</script>
+</body>
+</html>

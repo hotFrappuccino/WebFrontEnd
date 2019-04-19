@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문서 탐색을 이용한 이미지 교체</title>
+<script src="../../js/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('img').css('width','200px')
+		$('img').css('height','200px')
+		
+		//타이머를 이용해서 첫번째 img 태그를 맨 뒤로 이동
+		var timer = setInterval(function(){
+			$('img').first().appendTo('body')
+		},100)
+		
+		//타이머 중지  _ 후에 연습 : 버튼 만들어서 버튼 누르면 멈춤
+		setTimeout(function(){
+			clearInterval(timer)
+		},2000)
+	})
+</script>
+</head>
+<body>
+	<img src="../../resource/fruit1.jpg"/>
+	<img src="../../resource/fruit2.jpg"/>
+	<img src="../../resource/fruit3.jpg"/>
+</body>
+</html>

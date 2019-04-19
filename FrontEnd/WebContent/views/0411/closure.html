@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저</title>
+</head>
+<body>
+
+</body>
+
+<script>
+	var f = function(){
+		//함수 안에서 변수를 생성하면 지역변수_함수 내부에서만 사용이 가능
+		var cnt=0
+//		cnt=cnt+1
+
+		//내부함수
+		var inner = function(){
+			//내부함수에서는 외부함수의 지역변수를 사용할 수 있습니다.
+			cnt = cnt+1
+			console.log("cnt:"+cnt)
+		}
+		//함수를 리턴
+		return inner
+
+	}
+	//k는 f함수가 리턴한 값(그것은 바로 이너함수)을 저장하고 있습니다.
+	//f를 호출하게 되면 지역변수를 초기화하기 때문에 cnt는 매번 0으로 초기화가 됩니다.
+	//매번 초기화하지 않으려면 내부함수를 호출해서 초기화를 하지 않고 변경해야 합니다.
+	k = f()
+	k()
+	k()
+	
+	//단순한 메시지를 출력
+	alert("메시지")
+	//확인과 취소버튼이 생성 - 확인을 누르면 true, 취소를 누르면 false가 리턴
+	var result=confirm("메시지")
+	console.log("메시지:"+result)
+	//한 줄의 텍스트를 입력 _ 확인을 누르면 입력한 텍스트가 리턴되고 취소를 누르면 null이 리턴
+	var str = prompt("입력")
+	console.log("입력:"+str)
+	
+</script>
+</html>

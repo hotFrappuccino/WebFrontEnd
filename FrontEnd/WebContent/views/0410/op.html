@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바 스크립트 연산자</title>
+</head>
+<body>
+
+</body>
+<!-- 자바스크립트 연산자 -->
+<script>
+	//자바스크립트는 정수와 실수를 구분하지 않기 때문에 ++, --는 숫자변수에서 사용 가능.
+	var n= 10
+	n++
+	console.log("n:" +n)
+	var k=10.1
+	k++
+	console.log("k:" + k)
+	
+	console.log("n%3:" +n%3)
+	console.log("k%3:" +k%3) //실수를 나누기하면 정확한 결과가 나오지 않을 수 있습니다.
+	
+	console.log("n/3:"+n/3)
+	
+	//자바스크립트는 문자열도 크기 비교 가능 : 첫글자부터 하나씩 꺼내서 ascii코드로 비교
+	console.log("문자열 크기 비교:" + ("Hello">"hi"))
+	
+	console.log("문자열과 숫자 비교:" +("123"==123))  //자료형 유추해서 비교하므로 true
+	console.log("문자열과 숫자 비교:" +("123"===123)) //자료형 유추를 하지 않으므로 false
+	
+	var v1 = null
+	var v2
+	console.log("null과 undefined 비교:" +(v1==v2))//자료형 유추해서 비교하므로 true
+	console.log("null과 undefined 비교:" +(v1===v2))//자료형까지 비교하므로 false
+	
+	v1 = 5	//00000000 00000000 00000000 00000101
+	v2 = 14	//00000000 00000000 00000000 00001110
+	console.log("v1 & v2:" + (v1 & v2))//00000100 = 4
+	console.log("v1 | v2:" + (v1 | v2))//00001111 = 15
+	console.log("v1 ^ v2:" + (v1 ^ v2))//00001011 = 11
+
+	v1=-13
+	console.log("v1 << 2:" +(v1<<2))	//-52 : 곱하기 4한 효과
+	console.log("v1 >> 2:" +(v1>>2))	//-4 : 나누기 4한 효과
+	console.log("v1 >>> 2:" +(v1>>>2))	//? : 그냥 밀어냄
+</script>
+</html>

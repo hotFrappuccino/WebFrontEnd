@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>박스모델</title>
+<style>
+	.m{
+		background-color:#abc;
+		/*패딩은 영역과 콘텐츠 사이의 여백 영역
+		숫자를 하나만 입력하면 상하좌우 모두 적용, 4개를 적으면 상 하 좌 우 각각 적용 */
+		padding:10px 10px 5px 5px;
+		
+		/*마진 - 영역과 영역 사이의 여백 _ 적용 방법은 padding과 동일합니다.*/
+		margin:20px;
+		/*경계선을 한번에 만드는 방법 */
+		border: 8px outset red;
+		
+	}
+	.m:active{
+		background-color:#abc;
+		/*패딩은 영역과 콘텐츠 사이의 여백 영역
+		숫자를 하나만 입력하면 상하좌우 모두 적용, 4개를 적으면 상 하 좌 우 각각 적용 */
+		padding:10px 10px 5px 5px;
+		
+		/*마진 - 영역과 영역 사이의 여백 _ 적용 방법은 padding과 동일합니다.*/
+		margin:20px;
+		/*경계선을 한번에 만드는 방법 */
+		border: 8px inset red;
+	}
+	.m1{
+		margin:40px;
+		background-color:#cba;
+		/*방향별로 경계선을 따로따로 지정 */
+		border-top:3px solid blue;
+		border-left:3px solid blue;
+		border-bottom:3px solid red;
+		border-right:3px solid red;
+		
+	}
+	.m1:hover{
+		margin:40px;
+		background-color:#cba;
+		border:5px dashed blue;
+	}
+	.m1:active{
+		margin:40px;
+		background-color:#cba;
+		/*방향별로 경계선을 따로따로 지정 */
+		border-top:3px solid red;
+		border-left:3px solid red;
+		border-bottom:3px solid blue;
+		border-right:3px solid blue;
+	}
+	.temp{
+		width:100px;
+		height:70px;
+		text-align:center;
+		background-color:#abc;
+		padding-top:30px;
+		border-radius:0 0 300px 300px;
+	}
+	h3{
+		font-size:40px;
+		color:#000000; /*검정색 : 2개씩 쌍으로 값이 일치할 때는 하나씩만 입력 가능. _ 이 경우 #000 가능. */
+		width:150px;
+		text-align:center;
+		border: 4px solid rgb(18,52,86);
+		border-radius:15px;
+		background-color:#eee;
+		/*그림자를 안쪽으로 적용*/
+		box-shadow:inset 0px 0px 20px 20px rgba(18,52,86,0.8);
+	}
+	
+</style>
+</head>
+<body>
+	<h3>대한민국</h3>
+	<p class="temp">대나무숲!!!!</p>
+	<p class="m">안녕하세요 반갑습니다.</p>
+	<p class="m">박스모델 연습중입니다.</p>
+	<p class="m">p는 단락태그입니다.</p>
+	<p class="m1">좌우에 다른 콘텐츠가 표시될 수 없다구요.</p>
+</body>
+</html>

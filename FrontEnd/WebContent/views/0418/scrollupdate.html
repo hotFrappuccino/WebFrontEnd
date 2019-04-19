@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크롤 업데이트</title>
+<script src="../../js/jquery.min.js"></script>
+<script>
+	$(function(){
+		//body 태그 뒤에 h2 태그 20개 만들기
+	 	for(var i=0; i<20; i=i+1){
+	 		$('<h2>스크롤 해서 업데이트 하기</h2>').appendTo('body')
+	 	}
+		
+		//스크롤 이벤트 처리
+		$(window).scroll(function(){
+			//스크롤 한 위치 가져오기
+			var scrollHeight = 
+				$(window).scrollTop() +  $(window).height()
+			//문서의 높이 가져오기
+			var documentHeight = $(document).height()
+//			console.log(scrollHeight)
+//			console.log(documentHeight)
+			//위 2개의 높이가 같으면 - 가장 아래에서 스크롤 했다면
+//if(scrollHeight==documentHeight)  했을 때 작동 안됨
+		//왜?? 화면크기가 소수부분이 나와버리면 미묘한 오차로 안됨_그래서 둘의 차로 처리
+			if(scrollHeight - documentHeight < 2 && scrollHeight - documentHeight > -2 ){
+				//실제 프로그래밍이면 실제 데이터 N개를 가져와서 출력
+				//최근에는 페이징 처리를 하지 않고 이렇게 출력하는 것도 많이 사용
+				//대표적인 처리가 댓글 볼 때 또는 유투브 
+				for(var i=0; i<10; i=i+1){
+			 		$('<h3>업데이트 된 데이터</h3>').appendTo('body')
+			 	}
+			}
+		})
+	})
+</script>
+</head>
+<body>
+
+</body>
+</html>

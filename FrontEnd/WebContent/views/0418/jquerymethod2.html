@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery 속성 조작</title>
+<style>
+	.image{
+		width:200px;
+		height:200px;
+		border:1px solid blue;
+	}
+</style>
+<!-- 스크립트를 body 위에 작성할 때 window의 load 이벤트나 jquery의 문서 시작 이벤트 안에서만 body 태그의 내용을 읽을 수 있다. -->
+	<script src="../../js/jquery.min.js"></script>
+
+
+</head>
+<body>
+	<img id="img" src="../../resource/fruit1.jpg"/>
+
+
+<!--  두 줄의 의미가 같다. 어떤 걸 쓸지는 장단점 비교, 필요에 의해서 결정.
+	var img= document.getElementById('img')
+	$('#img')
+-->
+</body>
+<script>
+
+	//속성을 가져와서 읽기
+	console.log($('#img').attr('src'))
+	//속성을 변경하기
+	console.log($('#img').attr('src','../../resource/fruit3.jpg'))
+	
+	//css 설정
+//	$('#img').css('width','200px')   이거나 아래나 똑같음
+//	$('#img').attr('style','width:200px')
+
+//클래스를 추가 : 클래스에 설정된 css가 적용됩니다.
+	$('#img').addClass('image')
+
+</script>
+<!-- 스크립트를 위에다 두었을 때는 console.log($('#img').attr('src'))가 undefined로 나옴. -->
+</html>

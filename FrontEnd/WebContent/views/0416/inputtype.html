@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>추가된 Input Type</title>
+</head>
+<body>
+	<section id="submitform">
+		<form action="result.jsp">
+		<!-- 필수 속성 지정 정규식 패턴 적용 : 숫자 4자리 -->
+			텍스트 <input type="text" size="20" required="required" pattern="[0-9]{4}"/><br/>
+			<!-- 알아서 email주소 형식 검사를 수행 -->
+			이메일 <input type="email" size="20" placeholder="이메일을 입력하세요" list="emaillist"/>
+				<datalist id="emaillist">
+					<option value="ggangpae1@gmail.com"/>
+					<option value="ggangpae2@gmail.com"/>
+					<option value="ggangpae3@gmail.com"/>
+					<option value="ggangpae4@gmail.com"/>
+				</datalist>
+			<br/>
+			넘버 <input type="number" size="20"/><br/>
+			<!-- date는 IE에서는 동작을 안 하기도 합니다. -->
+			<input type="date" ><br/>
+			<input type="submit" value="전송"/>
+		</form>
+	</section>
+</body>
+</html>
